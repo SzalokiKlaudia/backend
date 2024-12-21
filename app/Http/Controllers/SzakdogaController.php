@@ -44,6 +44,13 @@ class SzakdogaController extends Controller
                 'message'=>'Post not found'
             ],404);
         }
+        $record->fill($request->all());
+        $record->save();
+
+        return response()->json([
+            'message'=>'Post updated',
+            'data'=>$record
+        ]);
     }
 
     /**
